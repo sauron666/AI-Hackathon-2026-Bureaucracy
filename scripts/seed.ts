@@ -1,11 +1,11 @@
 /**
  * Seed Script - Bulk ingest procedure data from JSON files into ChromaDB
- * 
+ *
  * Usage: npx tsx scripts/seed.ts
- * 
+ *
  * Requires:
  * - ChromaDB running (docker-compose up -d chromadb)
- * - OpenAI API key set (OPENAI_API_KEY)
+ * - Embedding API key set (SIRMA_API_KEY preferred, or OPENAI_API_KEY fallback)
  * - Procedure JSON files in data/seed/
  */
 
