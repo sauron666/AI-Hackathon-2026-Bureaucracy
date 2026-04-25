@@ -147,4 +147,8 @@ export async function getCollectionStats() {
   }
 }
 
+export function resetChromaClient(): void {
+  chromaInstance = null;
+}
+
 export { GET_INCLUDE };
