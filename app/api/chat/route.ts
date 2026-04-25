@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     }
 
     const { question, language, country } = payload.data;
-    const { chunks, sources, distances, metadata } = await retrieveContext(
+    const { chunks, sources, distances } = await retrieveContext(
       question,
       country,
     );
@@ -60,7 +60,7 @@ export async function POST(req: Request) {
       prompt: `Question: ${question}
 
 Context from official ${COUNTRY_NAMES[country] || country} sources:
-${buildContext(chunks, sources, metadata)}`,
+${buildContext(chunks, sources)}`,
     });
 
     return result.toTextStreamResponse();

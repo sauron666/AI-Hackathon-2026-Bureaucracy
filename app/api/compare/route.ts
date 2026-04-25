@@ -46,7 +46,7 @@ export async function POST(req: Request) {
 
     const contextByCountry = await Promise.all(
       normalizedCountries.map(async (code) => {
-        const { chunks, sources, distances, metadata } = await retrieveContext(
+        const { chunks, sources, distances } = await retrieveContext(
           question,
           code,
           3,
@@ -54,7 +54,7 @@ export async function POST(req: Request) {
         return {
           code,
           name: COUNTRY_NAMES[code] || code,
-          context: buildContext(chunks, sources, metadata),
+          context: buildContext(chunks, sources),
           confidence: getConfidence(distances),
           hasContext: chunks.length > 0,
         };
